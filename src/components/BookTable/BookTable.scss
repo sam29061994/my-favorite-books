@@ -1,0 +1,87 @@
+@use "../../styles/variables" as *;
+
+.book-table-container {
+  height: 60.4rem;
+  overflow-y: auto;
+  margin: 8rem 0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  .loading-row {
+    height: 40rem;
+
+    td {
+      position: relative;
+
+      .book-table-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.2rem;
+  text-align: left;
+
+  th,
+  td {
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    vertical-align: text-top;
+    width: 25%;
+    border-bottom: 1px solid $color-border;
+  }
+
+  tr {
+    td {
+      padding: 1.6rem;
+      margin-bottom: 0.8rem;
+      height: 13.825rem;
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: $color-content-medium;
+    }
+
+    td:nth-child(1) {
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      color: $color-content-bold;
+    }
+  }
+
+  th {
+    color: $color-content-medium;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 1.2rem 1.6rem;
+    position: sticky;
+    top: 0;
+    background-color: $color-white;
+  }
+
+  tr:hover {
+    background-color: $color-hover-bg;
+  }
+}
+
+.loading-cell {
+  height: 20rem;
+  text-align: center;
+
+  .book-table-loading {
+    height: 100%;
+  }
+}

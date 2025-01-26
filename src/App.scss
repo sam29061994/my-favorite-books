@@ -1,0 +1,46 @@
+@use "./styles/variables" as *;
+#root {
+  max-width: 128rem;
+  padding: clamp(4rem, 8rem, 12rem);
+}
+
+.title {
+  font-size: 3.4rem;
+  line-height: 4.4rem;
+}
+
+.books-content {
+  margin-top: 8rem;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1.6rem;
+  }
+
+  p {
+    color: $color-content-bold;
+    margin-bottom: 2.4rem;
+  }
+
+  button {
+    padding: 0.8rem 1.6rem;
+    background-color: #2bb24c;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+
+    &:hover {
+      background-color: darken(#2bb24c, 5%);
+    }
+  }
+}

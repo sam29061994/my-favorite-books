@@ -1,0 +1,46 @@
+@use "../../styles/variables" as *;
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+
+  .loading-text {
+    margin-left: 0.8rem;
+    color: $color-content-light;
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+  }
+
+  .loading-icon {
+    animation: spin 1s linear infinite;
+
+    &--small {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &--medium {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &--large {
+      width: 5.6rem;
+      height: 5.6rem;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

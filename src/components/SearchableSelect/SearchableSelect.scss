@@ -1,0 +1,85 @@
+@use "../../styles/variables" as *;
+
+.searchable-select {
+  position: relative;
+  width: 20rem;
+
+  &__input {
+    width: 100%;
+    height: 4rem;
+    padding: 0.4rem 0.8rem;
+    border: 0.1rem solid $color-border;
+    border-radius: 0.6rem;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: $color-text;
+    transition: all 0.15s ease;
+    cursor: pointer;
+
+    &::placeholder {
+      color: $color-placeholder;
+      font-weight: 400;
+    }
+
+    &:hover {
+      border-color: $color-hover-border;
+      background-color: $color-hover-bg;
+    }
+
+    &:focus {
+      border-color: $color-focus;
+      outline: none;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    width: 2rem;
+    top: 50%;
+    right: 0.8rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  &__options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0.4rem 0;
+    list-style: none;
+    background-color: $color-white;
+    border: 0.1rem solid $color-border;
+    border-radius: 0.6rem;
+    box-shadow: 0 0.4rem 0.8rem $shadow-color, 0 0 0.1rem $shadow-color;
+    max-height: 27rem;
+    overflow-y: auto;
+    z-index: 1000;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__option {
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: $color-content-bold;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:hover,
+    &.focused {
+      background-color: $color-hover-option;
+    }
+  }
+
+  &__no-results {
+    padding: 0.8rem 1.2rem;
+    color: $color-no-results;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
