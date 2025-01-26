@@ -1,7 +1,7 @@
 import { BookTableProps } from "./BookTable.type";
 import { Loading } from "../Loading/Loading";
-import "./BookTable.scss";
 import { capitalizeFirstLetter } from "../../utils/string";
+import "./BookTable.scss";
 
 export const BookTable = ({ books, isLoading }: BookTableProps) => {
   const MAX_BOOKS = 10;
@@ -9,13 +9,17 @@ export const BookTable = ({ books, isLoading }: BookTableProps) => {
 
   return (
     <div className="book-table-container">
-      <table className="book-table">
+      <table
+        className="book-table"
+        aria-label="Books list"
+        aria-busy={isLoading}
+      >
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Year</th>
-            <th>Genre</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Year</th>
+            <th scope="col">Genre</th>
           </tr>
         </thead>
         <tbody className="book-table-body">

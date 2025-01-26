@@ -39,6 +39,13 @@
     right: 0.8rem;
     transform: translateY(-50%);
     cursor: pointer;
+
+    img {
+      &:focus {
+        outline: 0.2rem solid $color-focus;
+        border-radius: 0.2rem;
+      }
+    }
   }
 
   &__options {

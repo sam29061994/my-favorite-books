@@ -1,4 +1,5 @@
 @use "./styles/variables" as *;
+
 #root {
   max-width: 128rem;
   padding: clamp(4rem, 8rem, 12rem);
@@ -38,9 +39,10 @@
     border-radius: 0.4rem;
     cursor: pointer;
     font-size: 1.4rem;
+    transition: filter 0.2s ease;
 
     &:hover {
-      background-color: darken(#2bb24c, 5%);
+      filter: brightness(0.95);
     }
   }
 }

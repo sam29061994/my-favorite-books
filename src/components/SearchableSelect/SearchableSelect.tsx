@@ -19,14 +19,6 @@ export const SearchableSelect = <T extends string>({
   const cancelRef = useRef<HTMLImageElement>(null);
   const isSelectOpen = isOpen || searchTerm.length > 0;
 
-  const filteredOptions = useMemo(
-    () =>
-      options.filter((option) =>
-        String(option).toLowerCase().includes(searchTerm.toLowerCase())
-      ),
-    [options, searchTerm]
-  );
-
   useEffect(() => {
     if (isSelectOpen) {
       setFocusedIndex(0);
@@ -47,6 +39,26 @@ export const SearchableSelect = <T extends string>({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    if (isOpen && focusedIndex >= 0) {
+      const focusedElement = document.getElementById(`option-${focusedIndex}`);
+      if (focusedElement) {
+        focusedElement.scrollIntoView({
+          block: "nearest",
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [focusedIndex, isOpen]);
+
+  const filteredOptions = useMemo(
+    () =>
+      options.filter((option) =>
+        String(option).toLowerCase().includes(searchTerm.toLowerCase())
+      ),
+    [options, searchTerm]
+  );
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -157,7 +169,7 @@ export const SearchableSelect = <T extends string>({
       </div>
       {isSelectOpen && (
         <ul className="searchable-select__options">
-          {filteredOptions.map((option, i) => {
+          {filteredOptions.map((option, index) => {
             const charIndex = option
               .toLowerCase()
               .indexOf(searchTerm.toLowerCase());
@@ -172,10 +184,10 @@ export const SearchableSelect = <T extends string>({
               <li
                 key={option}
                 className={`searchable-select__option ${
-                  focusedIndex === i ? "focused" : ""
+                  focusedIndex === index ? "focused" : ""
                 }`}
                 onClick={() => handleOptionClick(option)}
-                id={`option-${charIndex}`}
+                id={`option-${index}`}
                 role="option"
                 aria-selected={selectedOption === option}
               >

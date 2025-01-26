@@ -14,7 +14,7 @@ A modern web application built with React, TypeScript, and Vite that allows user
 1. Clone the repository
 
 ```bash
-git clone [your-repository-url]
+git clone [repository-url]
 ```
 
 2. Install dependencies
@@ -38,25 +38,22 @@ The application uses:
 - SCSS modules for component styling
 - ESLint for code quality
 
-### ESLint Configuration
-
-For production deployment, enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
-
 ## Building for Production
 
 Build the application:
 
 ```bash
 npm run build
+```
+
+## Project Structure
+
+```
+src/
+  ├── components/  # React components
+  ├── hooks/       # Custom React hooks
+  ├── services/    # API and other services
+  ├── styles/      # SCSS modules
+  ├── utils/       # Helper functions
+  └── App.tsx      # Root component
 ```
